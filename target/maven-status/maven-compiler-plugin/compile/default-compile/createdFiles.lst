@@ -6,8 +6,8 @@ com/example/task/dto/TaskRequest.class
 com/example/task/config/DataSeeder.class
 com/example/task/config/SecurityBeans.class
 com/example/task/config/SpelDemo.class
-com/example/task/entity/Task.class
 com/example/task/security/JwtAuthenticationFilter.class
+com/example/task/entity/Task.class
 com/example/task/exception/GlobalExceptionHandler.class
 com/example/task/entity/User.class
 com/example/task/config/TaskProperties.class
