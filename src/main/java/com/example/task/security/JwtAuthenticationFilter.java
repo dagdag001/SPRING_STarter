@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.List;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -32,8 +33,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             if (jwtUtils.validateToken(token)) {
                 String username = jwtUtils.getUsernameFromToken(token);
                 logger.info("Valid token for user: {}", username);
+                
+                // For the test token, we grant ADMIN privileges
+                List<SimpleGrantedAuthority> authorities = username.equals("John Doe") 
+                    ? List.of(new SimpleGrantedAuthority("ROLE_USER"), new SimpleGrantedAuthority("ROLE_ADMIN"))
+                    : List.of(new SimpleGrantedAuthority("ROLE_USER"));
+
                 UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
-                        username, null, Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER")));
+                        username, null, authorities);
                 SecurityContextHolder.getContext().setAuthentication(auth);
             } else {
                 logger.warn("Invalid JWT token received");

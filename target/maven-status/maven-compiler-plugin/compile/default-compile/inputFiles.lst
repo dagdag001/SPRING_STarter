@@ -1,6 +1,7 @@
 /home/fuaf24/Documents/INSA/src/main/java/com/example/task/TaskApp.java
 /home/fuaf24/Documents/INSA/src/main/java/com/example/task/aop/LoggingAspect.java
 /home/fuaf24/Documents/INSA/src/main/java/com/example/task/config/DataSeeder.java
+/home/fuaf24/Documents/INSA/src/main/java/com/example/task/config/OpenApiConfig.java
 /home/fuaf24/Documents/INSA/src/main/java/com/example/task/config/SecurityBeans.java
 /home/fuaf24/Documents/INSA/src/main/java/com/example/task/config/SecurityConfig.java
 /home/fuaf24/Documents/INSA/src/main/java/com/example/task/config/SpelDemo.java

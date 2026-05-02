@@ -3,6 +3,7 @@ package com.example.task.controller;
 import com.example.task.dto.TaskRequest;
 import com.example.task.dto.TaskResponse;
 import com.example.task.service.TaskService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/tasks")
+@SecurityRequirement(name = "bearerAuth")
 public class TaskController {
     private final TaskService taskService;
 
