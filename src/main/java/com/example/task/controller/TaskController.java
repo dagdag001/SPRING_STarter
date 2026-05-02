@@ -18,6 +18,11 @@ public class TaskController {
         this.taskService = taskService;
     }
 
+    @GetMapping("/")
+    public ResponseEntity<String> home() {
+        return ResponseEntity.ok("Task Management API is running on port 8081!");
+    }
+
     @GetMapping
     public ResponseEntity<List<TaskResponse>> getAll(
             @RequestParam(defaultValue = "0") int page,
