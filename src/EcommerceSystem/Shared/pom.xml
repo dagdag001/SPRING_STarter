@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.apache.org/licenses/as/model/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.apache.org/licenses/as/model/4.0.0 http://www.apache.org/licenses/as/model/4.0.0/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.ecommerce</groupId>
+        <artifactId>ecommerce-system</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>shared</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>Shared.Domain</module>
+        <module>Shared.Application</module>
+        <module>Shared.Infrastructure</module>
+        <module>Shared.Messaging</module>
+        <module>Shared.Contracts</module>
+        <module>Shared.Common</module>
+    </modules>
+
+</project>
