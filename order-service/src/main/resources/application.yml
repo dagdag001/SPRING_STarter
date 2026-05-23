@@ -1,0 +1,64 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: order-service
+  
+  datasource:
+    url: jdbc:h2:mem:orderdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+rabbitmq:
+  exchange:
+    name: app.exchange
+  queue:
+    order-created: order.created.queue
+  routing-key:
+    order-created: order.created
+
+# JWT Configuration (must match Auth Service configuration)
+jwt:
+  secret: my-secret-key-that-is-at-least-256-bits-long-for-security
+  expiration-hours: 1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+
+logging:
+  level:
+    com.example.orderservice: DEBUG
+    org.springframework.amqp: DEBUG
+    org.hibernate.SQL: DEBUG

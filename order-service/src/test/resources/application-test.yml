@@ -1,0 +1,36 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: order-service-test
+  
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+  
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+rabbitmq:
+  exchange:
+    name: app.exchange
+  queue:
+    order-created: order.created.queue.test
+  routing-key:
+    order-created: order.created
+
+logging:
+  level:
+    com.example.orderservice: INFO
+    org.springframework: WARN
