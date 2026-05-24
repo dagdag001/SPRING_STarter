@@ -81,7 +81,7 @@ public class StockUnavailabilityScenarioIntegrationTest {
         setupQueuesAndBindings();
 
         // Create event publisher
-        eventPublisher = new RabbitMQEventPublisher(rabbitTemplate, "app.exchange");
+        eventPublisher = new RabbitMQEventPublisher(rabbitTemplate);
     }
 
     private void setupQueuesAndBindings() {
@@ -139,7 +139,7 @@ public class StockUnavailabilityScenarioIntegrationTest {
         OrderCreatedEvent orderEvent = new OrderCreatedEvent(
                 UUID.randomUUID().toString(),
                 "OrderCreated",
-                Instant.now(),
+                Instant.now().toString(),
                 orderPayload
         );
 
@@ -163,7 +163,7 @@ public class StockUnavailabilityScenarioIntegrationTest {
         StockFailedEvent stockFailedEvent = new StockFailedEvent(
                 UUID.randomUUID().toString(),
                 "StockFailed",
-                Instant.now(),
+                Instant.now().toString(),
                 stockFailedPayload
         );
 
@@ -188,7 +188,7 @@ public class StockUnavailabilityScenarioIntegrationTest {
         PaymentCompletedEvent paymentEvent = new PaymentCompletedEvent(
                 UUID.randomUUID().toString(),
                 "PaymentCompleted",
-                Instant.now(),
+                Instant.now().toString(),
                 paymentPayload
         );
 
@@ -252,7 +252,7 @@ public class StockUnavailabilityScenarioIntegrationTest {
         OrderCreatedEvent orderEvent = new OrderCreatedEvent(
                 UUID.randomUUID().toString(),
                 "OrderCreated",
-                Instant.now(),
+                Instant.now().toString(),
                 orderPayload
         );
 
@@ -269,7 +269,7 @@ public class StockUnavailabilityScenarioIntegrationTest {
         StockFailedEvent stockFailedEvent = new StockFailedEvent(
                 UUID.randomUUID().toString(),
                 "StockFailed",
-                Instant.now(),
+                Instant.now().toString(),
                 stockFailedPayload
         );
 
@@ -307,7 +307,7 @@ public class StockUnavailabilityScenarioIntegrationTest {
         OrderCreatedEvent orderEvent = new OrderCreatedEvent(
                 UUID.randomUUID().toString(),
                 "OrderCreated",
-                Instant.now(),
+                Instant.now().toString(),
                 orderPayload
         );
 
@@ -325,7 +325,7 @@ public class StockUnavailabilityScenarioIntegrationTest {
         StockFailedEvent stockFailedEvent = new StockFailedEvent(
                 UUID.randomUUID().toString(),
                 "StockFailed",
-                Instant.now(),
+                Instant.now().toString(),
                 stockFailedPayload
         );
 

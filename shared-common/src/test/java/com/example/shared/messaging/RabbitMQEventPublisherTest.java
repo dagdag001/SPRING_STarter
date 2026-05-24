@@ -74,7 +74,7 @@ class RabbitMQEventPublisherTest {
             eventPublisher.publish(null, "order.created");
         });
         
-        verify(rabbitTemplate, never()).convertAndSend(any(), any(), any());
+        verify(rabbitTemplate, never()).convertAndSend(any(String.class), any(String.class), any(Event.class));
     }
     
     @Test
@@ -94,7 +94,7 @@ class RabbitMQEventPublisherTest {
             eventPublisher.publish(event, null);
         });
         
-        verify(rabbitTemplate, never()).convertAndSend(any(), any(), any());
+        verify(rabbitTemplate, never()).convertAndSend(any(String.class), any(String.class), any(Event.class));
     }
     
     @Test
@@ -114,7 +114,7 @@ class RabbitMQEventPublisherTest {
             eventPublisher.publish(event, "");
         });
         
-        verify(rabbitTemplate, never()).convertAndSend(any(), any(), any());
+        verify(rabbitTemplate, never()).convertAndSend(any(String.class), any(String.class), any(Event.class));
     }
     
     @Test

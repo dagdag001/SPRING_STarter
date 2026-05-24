@@ -105,7 +105,7 @@ public class SuccessfulOrderFlowIntegrationTest {
         setupQueuesAndBindings();
 
         // Create event publisher
-        eventPublisher = new RabbitMQEventPublisher(rabbitTemplate, "app.exchange");
+        eventPublisher = new RabbitMQEventPublisher(rabbitTemplate);
     }
 
     private void setupQueuesAndBindings() {
@@ -170,7 +170,7 @@ public class SuccessfulOrderFlowIntegrationTest {
         UserRegisteredEvent userEvent = new UserRegisteredEvent(
                 UUID.randomUUID().toString(),
                 "UserRegistered",
-                Instant.now(),
+                Instant.now().toString(),
                 userPayload
         );
 
@@ -199,7 +199,7 @@ public class SuccessfulOrderFlowIntegrationTest {
         OrderCreatedEvent orderEvent = new OrderCreatedEvent(
                 UUID.randomUUID().toString(),
                 "OrderCreated",
-                Instant.now(),
+                Instant.now().toString(),
                 orderPayload
         );
 
@@ -228,7 +228,7 @@ public class SuccessfulOrderFlowIntegrationTest {
         PaymentCompletedEvent paymentEvent = new PaymentCompletedEvent(
                 UUID.randomUUID().toString(),
                 "PaymentCompleted",
-                Instant.now(),
+                Instant.now().toString(),
                 paymentPayload
         );
 
@@ -254,7 +254,7 @@ public class SuccessfulOrderFlowIntegrationTest {
         StockReservedEvent stockEvent = new StockReservedEvent(
                 UUID.randomUUID().toString(),
                 "StockReserved",
-                Instant.now(),
+                Instant.now().toString(),
                 stockPayload
         );
 
@@ -273,12 +273,12 @@ public class SuccessfulOrderFlowIntegrationTest {
         ShipmentCreatedPayload shipmentPayload = new ShipmentCreatedPayload(
                 shipmentId,
                 orderId,
-                LocalDate.now().plusDays(5)
+                LocalDate.now().plusDays(5).toString()
         );
         ShipmentCreatedEvent shipmentEvent = new ShipmentCreatedEvent(
                 UUID.randomUUID().toString(),
                 "ShipmentCreated",
-                Instant.now(),
+                Instant.now().toString(),
                 shipmentPayload
         );
 

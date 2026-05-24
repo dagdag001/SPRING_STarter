@@ -15,10 +15,4 @@ public class DatabaseException extends ServiceException {
     public DatabaseException(String message, Throwable cause) {
         super("DATABASE_ERROR", message, cause);
     }
-    
-    public DatabaseException(String operation, Throwable cause) {
-        super("DATABASE_ERROR", 
-              String.format("Database operation '%s' failed", operation), 
-              cause);
-    }
 }

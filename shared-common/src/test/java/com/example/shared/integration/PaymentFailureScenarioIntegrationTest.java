@@ -81,7 +81,7 @@ public class PaymentFailureScenarioIntegrationTest {
         setupQueuesAndBindings();
 
         // Create event publisher
-        eventPublisher = new RabbitMQEventPublisher(rabbitTemplate, "app.exchange");
+        eventPublisher = new RabbitMQEventPublisher(rabbitTemplate);
     }
 
     private void setupQueuesAndBindings() {
@@ -139,7 +139,7 @@ public class PaymentFailureScenarioIntegrationTest {
         OrderCreatedEvent orderEvent = new OrderCreatedEvent(
                 UUID.randomUUID().toString(),
                 "OrderCreated",
-                Instant.now(),
+                Instant.now().toString(),
                 orderPayload
         );
 
@@ -160,7 +160,7 @@ public class PaymentFailureScenarioIntegrationTest {
         PaymentFailedEvent paymentFailedEvent = new PaymentFailedEvent(
                 UUID.randomUUID().toString(),
                 "PaymentFailed",
-                Instant.now(),
+                Instant.now().toString(),
                 paymentFailedPayload
         );
 
@@ -186,7 +186,7 @@ public class PaymentFailureScenarioIntegrationTest {
         StockReservedEvent stockEvent = new StockReservedEvent(
                 UUID.randomUUID().toString(),
                 "StockReserved",
-                Instant.now(),
+                Instant.now().toString(),
                 stockPayload
         );
 
@@ -249,7 +249,7 @@ public class PaymentFailureScenarioIntegrationTest {
         OrderCreatedEvent orderEvent = new OrderCreatedEvent(
                 UUID.randomUUID().toString(),
                 "OrderCreated",
-                Instant.now(),
+                Instant.now().toString(),
                 orderPayload
         );
 
@@ -263,7 +263,7 @@ public class PaymentFailureScenarioIntegrationTest {
         PaymentFailedEvent paymentFailedEvent = new PaymentFailedEvent(
                 UUID.randomUUID().toString(),
                 "PaymentFailed",
-                Instant.now(),
+                Instant.now().toString(),
                 paymentFailedPayload
         );
 

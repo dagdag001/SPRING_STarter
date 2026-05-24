@@ -84,11 +84,6 @@ public class AllEventsConsumer {
                 logger.error("Failed to reject message: deliveryTag={}, error: {}", 
                            deliveryTag, ioException.getMessage(), ioException);
             }
-            
-        } catch (IOException e) {
-            // Channel communication error
-            logger.error("Failed to acknowledge/reject message: deliveryTag={}, error: {}", 
-                       deliveryTag, e.getMessage(), e);
         }
     }
 }

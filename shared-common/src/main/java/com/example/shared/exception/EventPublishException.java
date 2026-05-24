@@ -15,10 +15,4 @@ public class EventPublishException extends ServiceException {
     public EventPublishException(String message, Throwable cause) {
         super("EVENT_PUBLISH_ERROR", message, cause);
     }
-    
-    public EventPublishException(String eventType, Throwable cause) {
-        super("EVENT_PUBLISH_ERROR", 
-              String.format("Failed to publish event of type '%s'", eventType), 
-              cause);
-    }
 }

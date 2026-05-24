@@ -79,7 +79,7 @@ public class RegisterUserUseCase {
         );
         UserRegisteredEvent event = new UserRegisteredEvent(payload);
         
-        eventPublisher.publish("user.registered", event);
+        eventPublisher.publish(event, "user.registered");
         logger.info("Published UserRegistered event for user: {}", savedUser.getUserId());
         
         return savedUser;
