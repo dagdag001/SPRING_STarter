@@ -2,6 +2,16 @@
 
 A distributed event-driven microservices system built with Spring Boot 3.x and RabbitMQ. The system consists of 6 independent microservices that communicate exclusively through asynchronous events, demonstrating event-driven choreography and Onion Architecture principles.
 
+## 🔧 Recent Fixes
+
+**✅ RESOLVED: Bean Name Conflict (May 2026)**
+- Fixed RabbitMQ configuration conflicts across all services
+- Renamed service-specific configs from `RabbitMQConfig` to `*ServiceQueueConfig` pattern
+- Removed duplicate bean definitions (appExchange, messageConverter, rabbitTemplate)
+- All services now use shared RabbitMQ beans from `shared-common` module
+- Services only define their specific queues and bindings
+- **Impact**: Order Service and all other services now start successfully without bean conflicts
+
 ## 🏗️ Architecture
 
 This system follows **Onion Architecture** principles with strict layer separation:

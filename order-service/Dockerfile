@@ -1,21 +1,31 @@
 # Multi-stage build for Order Service
-FROM maven:3.9-eclipse-temurin-17 AS build
+FROM maven:3.9-eclipse-temurin-21 AS build
 
 WORKDIR /app
 
-# Copy parent POM and shared-common module first for better caching
+# Copy parent POM
 COPY pom.xml .
-COPY shared-common ./shared-common
+
+# Copy all module POMs (Maven needs to know about all modules)
+COPY shared-common/pom.xml ./shared-common/pom.xml
+COPY auth-service/pom.xml ./auth-service/pom.xml
+COPY order-service/pom.xml ./order-service/pom.xml
+COPY payment-service/pom.xml ./payment-service/pom.xml
+COPY inventory-service/pom.xml ./inventory-service/pom.xml
+COPY shipping-service/pom.xml ./shipping-service/pom.xml
+COPY notification-service/pom.xml ./notification-service/pom.xml
+
+# Copy shared-common source (needed as dependency)
+COPY shared-common/src ./shared-common/src
 
 # Copy order-service source
-COPY order-service/pom.xml ./order-service/
 COPY order-service/src ./order-service/src
 
 # Build the application
 RUN mvn clean package -pl order-service -am -DskipTests
 
 # Runtime stage
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
 

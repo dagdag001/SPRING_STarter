@@ -2,7 +2,7 @@ package com.example.inventoryservice.infrastructure.messaging;
 
 import com.example.inventoryservice.application.usecase.ReserveStockUseCase;
 import com.example.shared.event.OrderCreatedEvent;
-import com.example.shared.event.OrderItemPayload;
+import com.example.shared.event.OrderItem;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.Channel;
@@ -65,7 +65,7 @@ public class OrderCreatedConsumer {
             try {
                 // Convert items to map of productId -> quantity
                 Map<String, Integer> items = new HashMap<>();
-                for (OrderItemPayload item : event.getPayload().getItems()) {
+                for (OrderItem item : event.getPayload().getItems()) {
                     items.put(item.getProductId(), item.getQuantity());
                 }
                 

@@ -44,15 +44,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- Spring Boot Dependencies -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
             <!-- Shared Common Module -->
             <dependency>
                 <groupId>com.example</groupId>

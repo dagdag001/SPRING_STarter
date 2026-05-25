@@ -91,7 +91,7 @@ public class ReserveStockUseCase {
         }
         
         // All items available - reserve stock
-        List<StockReservedPayload.Reservation> reservations = new ArrayList<>();
+        List<com.example.shared.event.StockReservation> reservations = new ArrayList<>();
         LocalDateTime reservedAt = LocalDateTime.now();
         
         for (Map.Entry<String, Integer> entry : items.entrySet()) {
@@ -113,7 +113,7 @@ public class ReserveStockUseCase {
             stockReservationRepository.save(reservation);
             
             // Add to reservations list for event
-            reservations.add(new StockReservedPayload.Reservation(productId, quantity));
+            reservations.add(new com.example.shared.event.StockReservation(productId, quantity));
             
             logger.debug("Reserved {} units of product {} for order {}", quantity, productId, orderId);
         }
